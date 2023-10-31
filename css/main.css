@@ -12,34 +12,20 @@
    ========================================================================== */
 
 html {
-  color: #222;
+  color: #9d2eda;
   font-size: 1em;
   line-height: 1.4;
 }
 
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Vendor-prefixed and regular ::selection selectors cannot be combined:
- * https://stackoverflow.com/a/16982510/7133471
- *
- * Customize the background color to match your design.
- */
-
 ::-moz-selection {
-  background: #b3d4fc;
+  background: #ad4de3;
   text-shadow: none;
 }
 
 ::selection {
-  background: #b3d4fc;
+  background: #a05ad7;
   text-shadow: none;
 }
-
-/*
- * A better looking default horizontal rule
- */
 
 hr {
   display: block;
@@ -261,3 +247,68 @@ textarea {
   }
 }
 
+label{
+  width: 500px;
+  height: 200px;
+  position: relative;
+  display: block;
+  background: #ebebeb;
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4),inset 0px -5px 15px rgba(255,255,255,0.4);
+  cursor:pointer;
+}
+
+label:after {
+  content: "";
+  width:180px;
+  height: 180px;
+  position: absolute;
+  top:10px;
+  left:10px;
+  background: linear-gradient(180deg,#ffcc89,#d8860b);
+  border-radius: 180px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+input:checked + label {
+  background: #242424;
+}
+input:checked + label:after {
+  left:490px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg,#777,#3a3a3a);
+}
+label, label:after {
+  transition: 0.3s
+}
+label:active:after{
+  width: 260px;
+}
+
+label svg {
+  position: absolute;
+  width: 120px;
+  top:40px;
+  z-index: 100;
+}
+label svg.sun {
+  left:40px;
+  fill:#fff;
+  transition: 0.3s;
+}
+label svg.moon {
+  left:340px;
+  fill:#7e7e7e;
+  transition: 0.3s;
+}
+input:checked + label svg.sun {
+  fill:#7e7e7e;
+}
+input:checked + label svg.moon {
+  fill:#fff;
+}
